@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Burnals lawn service - Gardening</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/styles.css" />
+     <style>
+    .subtitle-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #34D399;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+
+    .primary-button {
+      background-color: #34D399;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .primary-button:hover {
+      background-color: #2BAE7A;
+    }
+
+    .secondary-button.dark-mode {
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 12px 24px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+
+    .secondary-button.dark-mode:hover {
+      border-color: rgba(255, 255, 255, 0.7);
+      color: white;
+    }
+    .service-card-v1 {
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: white;
+      /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .image-wrapper {
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .image-wrapper img {
+      transition: transform 0.5s ease;
+    }
+
+    .group:hover .image-wrapper img {
+      transform: scale(1.1);
+    }
+
+    .service-badge-wrapper-v1 {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      background-color: white;
+      border-radius: 50%;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .framed-image {
+        border-radius: 20px;
+      width: 24px;
+      height: 24px;
+    }
+
+    .text-neutral-light {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .text-light {
+      color: white;
+    }
+
+    .slider-nav .w-slider-dot {
+      width: 10px;
+      height: 10px;
+      background-color: rgba(63, 60, 60, 0.3);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .slider-nav .w-slider-dot.w-active {
+      background-color: black;
+    }
+
+    .slide {
+      display: none;
+    }
+
+    .slide.active {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .tushar {
+        font-family: "Playfair Display", serif; /* Use Playfair Display for headings */
+      }
+  </style>
+    
+  </head>
+  <body>
+    <header class="main-header-wrapper bg-white shadow sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-2 flex justify-between items-center"
+      >
+        <!-- Logo -->
+        <div id="logo">
+          <a href="#" title="Gardening">
+            <img
+              class="normal_logo h-10 sm:h-12"
+              src="./assets/bernalslogo.png"
+              alt="Gardening"
+              title="Gardening"
+            />
+          </a>
+        </div>
+
+        <!-- Hamburger Button (Mobile Only) -->
+        <button
+          id="menu-toggle"
+          class="md:hidden text-3xl text-[#44514A] focus:outline-none"
+        >
+          ☰
+        </button>
+
+        <!-- Desktop Menu -->
+        <div id="menu-wrapper" class="hidden md:block">
+          <nav id="main-menu">
+            <ul class="menu flex space-x-6 text-[#44514A] font-medium">
+                    <li class="menu-item "><a href="index.html">Home</a></li>
+                    <li class="menu-item"><a href="about.html" id="about">About</a></li>
+                    <li class="menu-item current-menu-item"><a href="service.html">Services</a></li>
+                    <li class="menu-item"><a href="gallery.html">Gallery</a></li>
+                    <li class="menu-item"><a href="testimonial.html">Testimonial</a></li>
+                    <!-- <li class="menu-item"><a href="#">Projects</a></li> -->
+                  
+                    <li class="menu-item"><a href="contact.html">Contact</a></li>
+                </ul>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+        <nav>
+          <ul class="menu flex flex-col space-y-2 text-[#44514A] font-medium">
+            <li class="menu-item"><a href="#">Home</a></li>
+            <li class="menu-item"><a href="#about">About</a></li>
+            <li class="menu-item"><a href="#">Services</a></li>
+            <li class="menu-item"><a href="#">Gallery</a></li>
+            <li class="menu-item"><a href="#">FAQ</a></li>
+            <li class="menu-item"><a href="#">Projects</a></li>
+            <li class="menu-item"><a href="#">Shop</a></li>
+            <li class="menu-item"><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+
+    <section class="py-16 bg-white text-black">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+        <div class="mb-8 md:mb-0">
+          <div class="flex items-center text-sm font-semibold text-green-600 uppercase mb-2">
+            <div class="subtitle-dot bg-green-500"></div>
+            <div>Services</div>
+          </div>
+       <h1
+  class="tushar text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-800 leading-tight font-playfair "
+>
+  Explore our wide<br class="hidden sm:block" />
+  range of services
+</h1>
+
+        </div>
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+          <button
+            class="bg-green-700 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300"
+          >
+            Get in touch
+          </button>
+          <button
+            class="border border-black text-black hover:bg-emerald-700 hover:text-white font-semibold py-3 px-6 rounded-full transition duration-300"
+          >
+            Browse all services
+          </button>
+        </div>
+      </div>
+
+      <div class="relative">
+        <!-- Slides Wrapper -->
+        <div id="slider-wrapper">
+          <!-- Slide 1 -->
+          <div class="slide active">
+            <!-- 3 cards -->
+            <a href="#" class="service-card-v1 group">
+              <div class="relative image-wrapper">
+                <img src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3aa06bf0ebbfe539c20dd_garden-design-thumbnail-v1-landscaping-x-webflow-template.jpg" alt="Garden design" class="w-full h-auto object-cover"/>
+                <div class="service-badge-wrapper-v1">
+                  <img src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3ac759c9a165ed5397935_garden-design-icon-landscaping-x-webflow-template.svg" class="framed-image" />
+                </div>
+              </div>
+              <div class="py-6">
+                <h3 class="text-xl font-bold mb-2 text-gray-700">Garden design</h3>
+                <p class="text-neutral-black font-semibold">Designing vibrant, functional garden spaces with precision and creativity.</p>
+              </div>
+            </a>
+
+            <a href="#" class="service-card-v1 group">
+              <div class="relative image-wrapper">
+                <img src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3ac585fd93c8fd7f563c6_flower-planting-thumbnail-v1-landscaping-x-webflow-template.jpg" alt="Flower planting" class="w-full h-auto object-cover"/>
+                <div class="service-badge-wrapper-v1">
+                  <img src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3ac5a9376cd8c8f0233dd_flower-planting-icon-landscaping-x-webflow-template.svg" class="framed-image" />
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2 text-gray-700">Flower planting</h3>
+                <p class="text-neutral-black font-semibold">Brighten your outdoor space with our expert flower planting services.</p>
+              </div>
+            </a>
+
+            <a href="#" class="service-card-v1 group">
+              <div class="relative image-wrapper">
+                <img src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3ac3debd62608bc7f4174_garden-maintenance-thumbnail-v1-landscaping-x-webflow-template.jpg" alt="Garden maintenance" class="w-full h-auto object-cover"/>
+                <div class="service-badge-wrapper-v1">
+                  <img src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3ac3b17fe019ba0b55743_garden-maintenance-icon-landscaping-x-webflow-template.svg" class="framed-image" />
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2 text-gray-700">Garden maintenance</h3>
+                <p class="text-neutral-black font-semibold">Keep your garden pristine with our routine maintenance services.</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="slide">
+            <a href="#" class="service-card-v1 group">
+              <div class="relative image-wrapper">
+                <img src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3ac1f39074139e2a1ee61_lawn-mowing-thumbnail-v1-landscaping-x-webflow-template.jpg" alt="Lawn mowing" class="w-full h-auto object-cover"/>
+                <div class="service-badge-wrapper-v1">
+                  <img src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3ac1dca282a93de2b24a1_lawn-mowing-icon-landscaping-x-webflow-template.svg" class="framed-image" />
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2 text-gray-700">Lawn mowing</h3>
+                <p class="text-neutral-black font-semibold">Sharp, clean lawn mowing to keep your yard looking its best.</p>
+              </div>
+            </a>
+
+            <a href="#" class="service-card-v1 group">
+              <div class="relative image-wrapper">
+                <img src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3ac0a04b7dfa35146715a_leaf-removal-thumbnail-v1-landscaping-x-webflow-template.jpg" alt="Leaf removal" class="w-full h-auto object-cover"/>
+                <div class="service-badge-wrapper-v1">
+                  <img src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3abea42c69e7a817b28f2_leaf-removal-icon-landscaping-x-webflow-template.svg" class="framed-image" />
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2 text-gray-700">Leaf removal</h3>
+                <p class="text-neutral-black font-semibold">Quick and thorough leaf cleanup to keep your space tidy.</p>
+              </div>
+            </a>
+
+            <a href="#" class="service-card-v1 group">
+              <div class="relative image-wrapper">
+                <img src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3abbe5fd93c8fd7f4d07e_pond-maintenance-thumbnail-v1-landscaping-x-webflow-template.jpg" alt="Pond maintenance" class="w-full h-auto object-cover"/>
+                <div class="service-badge-wrapper-v1">
+                  <img src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3abb2e4c87748468cc79a_pond-maintenance-icon-landscaping-x-webflow-template.svg" class="framed-image" />
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2 text-gray-700">Pond maintenance</h3>
+                <p class="text-neutral-black font-semibold">Keep your pond healthy, clear, and beautiful all year round.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Dots -->
+        <div class="slider-nav flex justify-center mt-12 space-x-5">
+          <div class="w-slider-dot w-active" data-slide="0"></div>
+          <div class="w-slider-dot" data-slide="1"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <section id="services-section" class=" p-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="flip-card relative w-full h-[470px]">
+          <div
+            class="flip-inner relative w-full h-full"
+            onclick="this.classList.toggle('flipped')"
+          >
+            <div
+              class="flip-front bg-cover bg-center"
+              style="
+                background-image: url('./assets/img1.webp');
+              "
+            >
+              <div
+                class="flex flex-col justify-end h-full bg-black/40 text-center p-4 text-white"
+              >
+                <div class="text-lg font-medium">Native Plant Nursery</div>
+                <button
+                  class="absolute top-5 right-4 w-10 h-10 bg-white text-black rounded-full text-lg font-bold"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div
+              class="flip-back bg-[#44514A] text-white flex flex-col justify-center items-center text-center p-6"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/3592/3592209.png"
+                alt="Grass Icon"
+                class="w-24 h-24 mb-4 drop-shadow-lg z-10"
+              />
+              <p class="mb-4">
+                Enhance biodiversity in your garden with Garden Tree's Native
+                Plant Nursery and Seed Bank.
+              </p>
+              <a href="#" class="underline text-sm">Learn More →</a>
+              <button
+                class="absolute top-5 right-4 w-10 h-10 bg-white text-black rounded-full text-lg font-bold"
+              >
+                −
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+  class="flip-card relative w-full h-[470px] transform md:scale-110 md:-translate-y-2 transition-all duration-300"
+>
+          <div
+            class="flip-inner relative w-full h-full"
+            onclick="this.classList.toggle('flipped')"
+          >
+            <div
+              class="flip-front bg-cover bg-center"
+              style="
+                background-image: url('https://media.istockphoto.com/id/1287116610/photo/laying-turf-around-the-man-cave.jpg?s=612x612&w=0&k=20&c=0eyfq9u5WyDZPSpogiuvI3Qs63SUbf-cShNdWAnUUIE=');
+              "
+            >
+              <div
+                class="flex flex-col justify-end h-full bg-black/40 text-center p-4 text-white"
+              >
+                <div class="text-lg font-medium">Gardening Consultation</div>
+                <button
+                  class="absolute top-5 right-4 w-10 h-10 bg-white text-black rounded-full text-lg font-bold"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div
+              class="flip-back bg-[#44514A] text-white flex flex-col justify-center items-center text-center p-6"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/2917/2917903.png"
+                alt="Consult Icon"
+                class="w-24 h-24 mb-4 drop-shadow-lg z-10"
+              />
+
+              <p class="mb-4">
+                Garden Tree offers personalized, on-site consultations to help
+                clients create and maintain sustainable gardens.
+              </p>
+              <a href="#" class="underline text-sm">Learn More →</a>
+              <button
+                class="absolute top-5 right-4 w-10 h-10 bg-white text-black rounded-full text-lg font-bold"
+              >
+                −
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card relative w-full h-[470px]">
+          <div
+            class="flip-inner relative w-full h-full"
+            onclick="this.classList.toggle('flipped')"
+          >
+            <div
+              class="flip-front bg-cover bg-center"
+              style="
+                background-image: url('https://media.istockphoto.com/id/1223414780/photo/landscaping-contractor-installing-new-turf-in-backyard.jpg?s=612x612&w=0&k=20&c=c9ee7hYQ5_sMMG8HgbRhVm04ylIHVi2HsMBF9C8qNEA=');
+              "
+            >
+              <div
+                class="flex flex-col justify-end h-full bg-black/40 text-center p-4 text-white"
+              >
+                <div class="text-lg font-medium">Eco-Friendly Landscaping</div>
+                <button
+                  class="absolute top-5 right-4 w-10 h-10 bg-white text-black rounded-full text-lg font-bold"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div
+              class="flip-back bg-[#44514A] text-white flex flex-col justify-center items-center text-center p-6"
+            >
+              <img
+                src="./assets/Gemini_Generated_Image_kc156mkc156mkc15-removebg-preview.png"
+                alt="Tree Icon"
+                class="w-24 h-24 mb-4 drop-shadow-lg z-10"
+              />
+
+              <p class="mb-4">
+                Transform your outdoor space with Garden Tree's eco-friendly
+                landscaping services.
+              </p>
+              <a href="#" class="underline text-sm">Learn More →</a>
+              <button
+                class="absolute top-5 right-4 w-10 h-10 bg-white text-black rounded-full text-lg font-bold"
+              >
+                −
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <section class="relative">
+      <div class="w-full h-64">
+        <img
+          src="https://dtgardening.wpengine.com/wp-content/uploads/2016/12/back-bg.png"
+          alt="Background"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <div class="relative -mt-64 flex items-center justify-between">
+        <div
+          class="bg-[#95c122] diagonal flex flex-col justify-center p-10 text-left w-full lg:w-3/5"
+        >
+          <h1 class="text-3xl font-bold">GARDNER NEED & LANDSCAPING</h1>
+          <p class="italic text-lg mt-2">
+            If you have an gardner need, simply call our 24 hour emergency
+            number
+          </p>
+          <div class="mt-3 flex items-center flex-wrap space-x-3">
+            <span class="text-2xl font-bold">1800 856 7489</span>
+            <span>OR</span>
+            <a
+              href="#"
+              class="bg-[#222222] text-white font-bold rounded flex items-center px-5 py-3 space-x-2"
+            >
+              <span>CONTACT US</span>
+              <span
+                class="bg-[#95c122] rounded-full w-5 h-5 flex items-center justify-center"
+                >➔</span
+              >
+            </a>
+          </div>
+        </div>
+
+        <div class="w-2/5 justify-end relative hidden lg:flex">
+          <img
+            src="http://fastwpdemo.com/demo/gardencare/wp-content/uploads/2022/06/footer-man.png"
+            alt="Person"
+            class="h-[500px] absolute top-[-60px] right-10"
+            data-aos="fade-right"
+            data-aos-duration="2000"
+            data-aos-anchor-placement="bottom-bottom"
+            data-aos-once="false"
+          />
+        </div>
+      </div>
+    </section>
+
+    ---
+
+    <section class="bg-[#3c2813] text-[#d2c8b2] pt-20 pb-10">
+      <div
+        class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 p-6"
+      >
+        <div>
+          <h2 class="text-white font-bold text-lg">About Us</h2>
+          <p class="mt-3">
+            Tempor kpsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+          </p>
+          <a href="#" class="text-[#95c122] mt-3 inline-block">READ MORE ➔</a>
+        </div>
+
+        <div>
+          <h2 class="text-white font-bold text-lg">Our Services</h2>
+          <ul class="mt-3 space-y-1">
+            <li>➔ Testimonials</li>
+            <li>➔ Team</li>
+            <li>➔ Pricing</li>
+            <li>➔ FAQ</li>
+            <li>➔ Contact Us</li>
+          </ul>
+        </div>
+
+        <div
+          class="col-span-1 md:col-span-2 lg:col-span-1 flex flex-col md:flex-row md:items-center md:justify-between"
+        >
+          <div class="md:w-1/2 lg:w-full">
+            <h2 class="text-white font-bold text-lg">Get In Touch</h2>
+            <div class="mt-3 space-y-3">
+              <div>
+                📍 Lorance Road 542B, Tailstoi Town 5248 MT, Worldwide Country
+              </div>
+              <div>📞 +1-800-555-44-678</div>
+              <div>✉️ contact@gardencare.com</div>
+              <div>⏰ Mon - Sat: 9:00 AM - 6:00 PM</div>
+              <div>🗓️ Sunday: Closed</div>
+            </div>
+          </div>
+          <div class="flex justify-center mt-8 md:mt-0 md:w-1/2 lg:hidden">
+            <img
+              src="http://fastwpdemo.com/demo/gardencare/wp-content/uploads/2022/06/footer-man.png"
+              alt="Person"
+              class="h-[250px] object-contain"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.w-slider-dot');
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.dataset.slide);
+
+        // Toggle active class
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('w-active'));
+
+        slides[index].classList.add('active');
+        dot.classList.add('w-active');
+      });
+    });
+  </script>
+   
+<script>
+      // AOS initialization
+      AOS.init({});
+
+      // --- First Carousel (Fading - for About Section) JavaScript ---
+      const fadingCarouselTrack = document.getElementById(
+        "fading-carousel-track"
+      );
+      // Ensure fadingCarouselTrack exists before proceeding
+      if (fadingCarouselTrack) {
+        const fadingSlides = Array.from(fadingCarouselTrack.children);
+        const totalFadingSlides = fadingSlides.length;
+        let currentFadingIndex = 0;
+        let autoChangeInterval;
+
+        function updateFadingCarousel() {
+          fadingSlides.forEach((slide) => {
+            slide.classList.remove("active");
+            slide.style.visibility = "hidden";
+          });
+
+          if (fadingSlides[currentFadingIndex]) {
+            fadingSlides[currentFadingIndex].classList.add("active");
+            fadingSlides[currentFadingIndex].style.visibility = "visible";
+          }
+        }
+
+        function nextFadingImage() {
+          currentFadingIndex = (currentFadingIndex + 1) % totalFadingSlides;
+          updateFadingCarousel();
+        }
+
+        function startFadingAutoChange() {
+          clearInterval(autoChangeInterval);
+          autoChangeInterval = setInterval(() => {
+            nextFadingImage();
+          }, 5000); // 5 seconds
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+          updateFadingCarousel();
+          startFadingAutoChange();
+        });
+      }
+
+      // --- Second Carousel (Sliding - for Other Sections) JavaScript ---
+      const slidingCarouselTrack = document.getElementById(
+        "sliding-carousel-track"
+      );
+      // Ensure slidingCarouselTrack exists before proceeding
+      if (slidingCarouselTrack) {
+        const slidingCarouselSlides = slidingCarouselTrack.querySelectorAll(
+          ".sliding-carousel-slide"
+        );
+        let currentSlidingIndex = 1; // Start from second image for better initial centering (0-indexed)
+
+        function updateSlidingCarousel() {
+          slidingCarouselSlides.forEach((slide, index) => {
+            slide.classList.remove("active");
+            slide.style.transition =
+              "transform 0.6s ease-in-out, opacity 0.6s ease-in-out";
+            slide.style.zIndex = 1;
+
+            if (index === currentSlidingIndex) {
+              setTimeout(() => {
+                slide.classList.add("active");
+                slide.style.zIndex = 10;
+              }, 10);
+            }
+          });
+
+          requestAnimationFrame(() => {
+            const container = slidingCarouselTrack.parentElement;
+            // Calculate slide width including margin (20px for 10px on each side)
+            const slideWidth = slidingCarouselSlides[0].offsetWidth + 20;
+            let offset =
+              slideWidth * currentSlidingIndex -
+              (container.offsetWidth - slideWidth) / 2;
+
+            // Ensure we don't scroll past the beginning or end
+            const maxOffset =
+              slidingCarouselTrack.scrollWidth - container.offsetWidth;
+            offset = Math.max(0, Math.min(offset, maxOffset));
+
+            slidingCarouselTrack.style.transform = `translateX(-${offset}px)`;
+          });
+        }
+
+        function nextSlidingSlide() {
+          currentSlidingIndex =
+            (currentSlidingIndex + 1) % slidingCarouselSlides.length;
+          updateSlidingCarousel();
+        }
+
+        function prevSlidingSlide() {
+          currentSlidingIndex =
+            (currentSlidingIndex - 1 + slidingCarouselSlides.length) %
+            slidingCarouselSlides.length;
+          updateSlidingCarousel();
+        }
+
+        // Event listeners for main carousel
+        window.addEventListener("load", updateSlidingCarousel);
+        window.addEventListener("resize", updateSlidingCarousel);
+        window.addEventListener("pageshow", updateSlidingCarousel);
+        document.addEventListener("visibilitychange", updateSlidingCarousel);
+      }
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggleBtn = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        toggleBtn.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>

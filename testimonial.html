@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Burnals lawn service - Gardening</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+      body {
+        /* font-family: "Inter", sans-serif; */
+        overflow-x: hidden; /* Prevent horizontal scroll from marquee */
+      }
+      .marquee {
+        white-space: nowrap;
+        display: flex;
+        animation: marquee-left 30s linear infinite; /* Default for top row */
+      }
+      .marquee.rtl {
+        animation: marquee-right 30s linear infinite; /* For bottom row */
+      }
+      .marquee-wrapper {
+        overflow: hidden;
+      }
+      .marquee > * {
+        flex-shrink: 0;
+        margin-right: 1.5rem; /* Space between cards */
+      }.tushar {
+        font-family: "Playfair Display", serif; /* Use Playfair Display for headings */
+      }
+
+      /* Keyframes for marquee animation */
+      @keyframes marquee-left {
+        0% {
+          transform: translateX(0%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+      @keyframes marquee-right {
+        0% {
+          transform: translateX(-100%);
+        } /* Start from end for RTL */
+        100% {
+          transform: translateX(0%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-header-wrapper bg-white shadow sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-2 flex justify-between items-center"
+      >
+        <!-- Logo -->
+        <div id="logo">
+          <a href="#" title="Gardening">
+            <img
+              class="normal_logo h-10 sm:h-12"
+              src="./assets/bernalslogo.png"
+              alt="Gardening"
+              title="Gardening"
+            />
+          </a>
+        </div>
+
+        <!-- Hamburger Button (Mobile Only) -->
+        <button
+          id="menu-toggle"
+          class="md:hidden text-3xl text-[#44514A] focus:outline-none"
+        >
+          ☰
+        </button>
+
+        <!-- Desktop Menu -->
+        <div id="menu-wrapper" class="hidden md:block">
+          <nav id="main-menu">
+            <ul class="menu flex space-x-6 text-[#44514A] font-medium">
+              <li class="menu-item">
+                <a href="index.html">Home</a>
+              </li>
+              <li class="menu-item">
+                <a href="about.html" id="about">About</a>
+              </li>
+              <li class="menu-item"><a href="service.html">Services</a></li>
+              <li class="menu-item"><a href="gallery.html">Gallery</a></li>
+              <li class="menu-item current-menu-item">
+                <a href="testimonial.html">Testimonial</a>
+              </li>
+              <!-- <li class="menu-item"><a href="projects.html">Projects</a></li> -->
+
+              <li class="menu-item"><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+        <nav>
+          <ul class="menu flex space-x-6 text-[#44514A] font-medium">
+            <li class="menu-item">
+              <a href="index.html">Home</a>
+            </li>
+            <li class="menu-item"><a href="about.html" id="about">About</a></li>
+            <li class="menu-item"><a href="service.html">Services</a></li>
+            <li class="menu-item"><a href="gallery.html">Gallery</a></li>
+            <li class="menu-item current-menu-item">
+              <a href="testimonial.html">Testimonial</a>
+            </li>
+            <li class="menu-item"><a href="projects.html">Projects</a></li>
+
+            <li class="menu-item"><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div
+      class="bg-gray-50 min-h-screen flex flex-col items-center justify-center py-12"
+    >
+      <div class="w-full max-w-7xl px-4 md:px-8 lg:px-12">
+        <!-- Header Section -->
+        <div class="w-layout-blockcontainer container-default w-container">
+          <div
+            data-w-id="c2493ddf-b773-1182-de69-74166af53384"
+            class="inner-container _490px center flex flex-col items-center text-center"
+          >
+            <div class="center-content">
+              <div
+                class="subtitle-wrapper flex items-center justify-center text-sm font-medium text-gray-700"
+              >
+                <div
+                  class="subtitle-dot w-2 h-2 bg-green-500 rounded-full mr-2"
+                ></div>
+                <div>Testimonials</div>
+              </div>
+
+              <div class="mt-4">
+                <h2
+                  class="tushar text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 leading-tight"
+                >
+                  What our clients say about our work
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial Marquee Section 1 (Left to Right) -->
+        <div
+          data-w-id="ef531224-c816-118d-9d0e-883f82dea9d8"
+          class="mt-12 overflow-hidden"
+        >
+          <div class="testimonial-marquee-wrapper marquee-wrapper">
+            <div class="testimonial-marquee marquee">
+              <!-- Duplicate content to ensure smooth looping -->
+              <!-- Card 1 -->
+              <div
+                class="card testimonial-card-v1 bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex flex-col space-y-4 w-72 md:w-80 lg:w-96"
+              >
+                <div class="avatar-wrapper _40px flex items-center">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd32489addaffe666d03_john-carter-avatar-landscaping-x-webflow-template.jpg"
+                    alt="John Carter Avatar"
+                    class="avatar-image circle w-10 h-10 rounded-full object-cover"
+                  />
+                  <div class="ml-4">
+                    <div
+                      class="testimonial-card-v1---top-content flex items-center"
+                    >
+                      <div class="username-wrapper flex items-center">
+                        <div class="username font-semibold text-gray-900">
+                          John Carter
+                        </div>
+                        <div class="verified-icon ml-1">
+                          <img
+                            src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd3188858cca620c08c3_verified-icon-landscaping-x-webflow-template.svg"
+                            loading="eager"
+                            alt="Verified Icon"
+                            class="image w-4 h-4"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-sm text-gray-500">@john_c</div>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <p class="text-gray-700">
+                    “Fantastic landscaping service results.”
+                  </p>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div
+                class="card testimonial-card-v1 bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex flex-col space-y-4 w-72 md:w-80 lg:w-96"
+              >
+                <div class="avatar-wrapper _40px flex items-center">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd31c8faa8b34d07ac7d_sophie-moore-avatar-landscaping-x-webflow-template.jpg"
+                    alt="Sophie Moore Avatar"
+                    class="avatar-image circle w-10 h-10 rounded-full object-cover"
+                  />
+                  <div class="ml-4">
+                    <div
+                      class="testimonial-card-v1---top-content flex items-center"
+                    >
+                      <div class="username-wrapper flex items-center">
+                        <div class="username font-semibold text-gray-900">
+                          Sophie Moore
+                        </div>
+                        <div class="verified-icon ml-1">
+                          <img
+                            src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd3188858cca620c08c3_verified-icon-landscaping-x-webflow-template.svg"
+                            loading="eager"
+                            alt="Verified Icon"
+                            class="image w-4 h-4"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-sm text-gray-500">@sophi_m</div>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <p class="text-gray-700">“Highly recommended!”</p>
+                </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div
+                class="card testimonial-card-v1 bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex flex-col space-y-4 w-72 md:w-80 lg:w-96"
+              >
+                <div class="avatar-wrapper _40px flex items-center">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd32ec8374639f0ba08f_matt-cannon-avatar-landscaping-x-webflow-template.jpg"
+                    alt="Matt Cannon Avatar"
+                    class="avatar-image circle w-10 h-10 rounded-full object-cover"
+                  />
+                  <div class="ml-4">
+                    <div
+                      class="testimonial-card-v1---top-content flex items-center"
+                    >
+                      <div class="username-wrapper flex items-center">
+                        <div class="username font-semibold text-gray-900">
+                          Matt Cannon
+                        </div>
+                        <div class="verified-icon ml-1">
+                          <img
+                            src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd3188858cca620c08c3_verified-icon-landscaping-x-webflow-template.svg"
+                            loading="eager"
+                            alt="Verified Icon"
+                            class="image w-4 h-4"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-sm text-gray-500">@matt_c</div>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <p class="text-gray-700">
+                    “Exceptional service and breathtaking results.”
+                  </p>
+                </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div
+                class="card testimonial-card-v1 bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex flex-col space-y-4 w-72 md:w-80 lg:w-96"
+              >
+                <div class="avatar-wrapper _40px flex items-center">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd32e98529c3b55408f2_lilly-woods-avatar-landscaping-x-webflow-template.jpg"
+                    alt="Lilly Woods Avatar"
+                    class="avatar-image circle w-10 h-10 rounded-full object-cover"
+                  />
+                  <div class="ml-4">
+                    <div
+                      class="testimonial-card-v1---top-content flex items-center"
+                    >
+                      <div class="username-wrapper flex items-center">
+                        <div class="username font-semibold text-gray-900">
+                          Lilly Woods
+                        </div>
+                        <div class="verified-icon ml-1">
+                          <img
+                            src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd3188858cca620c08c3_verified-icon-landscaping-x-webflow-template.svg"
+                            loading="eager"
+                            alt="Verified Icon"
+                            class="image w-4 h-4"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-sm text-gray-500">@lilly_w</div>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <p class="text-gray-700">“Our garden looks amazing!”</p>
+                </div>
+              </div>
+
+              <!-- Duplicate the cards for seamless animation -->
+              <div
+                class="card testimonial-card-v1 bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex flex-col space-y-4 w-72 md:w-80 lg:w-96"
+              >
+                <div class="avatar-wrapper _40px flex items-center">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd32489addaffe666d03_john-carter-avatar-landscaping-x-webflow-template.jpg"
+                    alt="John Carter Avatar"
+                    class="avatar-image circle w-10 h-10 rounded-full object-cover"
+                  />
+                  <div class="ml-4">
+                    <div
+                      class="testimonial-card-v1---top-content flex items-center"
+                    >
+                      <div class="username-wrapper flex items-center">
+                        <div class="username font-semibold text-gray-900">
+                          John Carter
+                        </div>
+                        <div class="verified-icon ml-1">
+                          <img
+                            src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd3188858cca620c08c3_verified-icon-landscaping-x-webflow-template.svg"
+                            loading="eager"
+                            alt="Verified Icon"
+                            class="image w-4 h-4"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-sm text-gray-500">@john_c</div>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <p class="text-gray-700">
+                    “Fantastic service, Highly recommended!”
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="card testimonial-card-v1 bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex flex-col space-y-4 w-72 md:w-80 lg:w-96"
+              >
+                <div class="avatar-wrapper _40px flex items-center">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd31c8faa8b34d07ac7d_sophie-moore-avatar-landscaping-x-webflow-template.jpg"
+                    alt="Sophie Moore Avatar"
+                    class="avatar-image circle w-10 h-10 rounded-full object-cover"
+                  />
+                  <div class="ml-4">
+                    <div
+                      class="testimonial-card-v1---top-content flex items-center"
+                    >
+                      <div class="username-wrapper flex items-center">
+                        <div class="username font-semibold text-gray-900">
+                          Sophie Moore
+                        </div>
+                        <div class="verified-icon ml-1">
+                          <img
+                            src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd3188858cca620c08c3_verified-icon-landscaping-x-webflow-template.svg"
+                            loading="eager"
+                            alt="Verified Icon"
+                            class="image w-4 h-4"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-sm text-gray-500">@sophi_m</div>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <p class="text-gray-700">
+                    “Transformed our yard into a beautiful outdoor😊.”
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="card testimonial-card-v1 bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex flex-col space-y-4 w-72 md:w-80 lg:w-96"
+              >
+                <div class="avatar-wrapper _40px flex items-center">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd32ec8374639f0ba08f_matt-cannon-avatar-landscaping-x-webflow-template.jpg"
+                    alt="Matt Cannon Avatar"
+                    class="avatar-image circle w-10 h-10 rounded-full object-cover"
+                  />
+                  <div class="ml-4">
+                    <div
+                      class="testimonial-card-v1---top-content flex items-center"
+                    >
+                      <div class="username-wrapper flex items-center">
+                        <div class="username font-semibold text-gray-900">
+                          Matt Cannon
+                        </div>
+                        <div class="verified-icon ml-1">
+                          <img
+                            src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd3188858cca620c08c3_verified-icon-landscaping-x-webflow-template.svg"
+                            loading="eager"
+                            alt="Verified Icon"
+                            class="image w-4 h-4"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-sm text-gray-500">@matt_c</div>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <p class="text-gray-700">“Our garden looks amazing!”</p>
+                </div>
+              </div>
+
+              <div
+                class="card testimonial-card-v1 bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex flex-col space-y-4 w-72 md:w-80 lg:w-96"
+              >
+                <div class="avatar-wrapper _40px flex items-center">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd32e98529c3b55408f2_lilly-woods-avatar-landscaping-x-webflow-template.jpg"
+                    alt="Lilly Woods Avatar"
+                    class="avatar-image circle w-10 h-10 rounded-full object-cover"
+                  />
+                  <div class="ml-4">
+                    <div
+                      class="testimonial-card-v1---top-content flex items-center"
+                    >
+                      <div class="username-wrapper flex items-center">
+                        <div class="username font-semibold text-gray-900">
+                          Lilly Woods
+                        </div>
+                        <div class="verified-icon ml-1">
+                          <img
+                            src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd3188858cca620c08c3_verified-icon-landscaping-x-webflow-template.svg"
+                            loading="eager"
+                            alt="Verified Icon"
+                            class="image w-4 h-4"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-sm text-gray-500">@lilly_w</div>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <p class="text-gray-700">“Nice job.”</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial Marquee Section 2 (Right to Left) -->
+        <div class="mt-6 overflow-hidden">
+          <div class="testimonial-marquee-wrapper marquee-wrapper">
+            <div class="testimonial-marquee marquee rtl">
+              <!-- Duplicate content to ensure smooth looping -->
+              <!-- Card 5 -->
+              <div
+                class="card testimonial-card-v1 bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex flex-col space-y-4 w-72 md:w-80 lg:w-96"
+              >
+                <div class="avatar-wrapper _40px flex items-center">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd31bd59172f6ec115c3_sandy-houston-avatar-landscaping-x-webflow-template.jpg"
+                    alt="Sandy Houston Avatar"
+                    class="avatar-image circle w-10 h-10 rounded-full object-cover"
+                  />
+                  <div class="ml-4">
+                    <div
+                      class="testimonial-card-v1---top-content flex items-center"
+                    >
+                      <div class="username-wrapper flex items-center">
+                        <div class="username font-semibold text-gray-900">
+                          Sandy Houston
+                        </div>
+                        <div class="verified-icon ml-1">
+                          <img
+                            src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd3188858cca620c08c3_verified-icon-landscaping-x-webflow-template.svg"
+                            loading="eager"
+                            alt="Verified Icon"
+                            class="image w-4 h-4"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-sm text-gray-500">@sandy_h</div>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <p class="text-gray-700">“Impressive transformation!”</p>
+                </div>
+              </div>
+
+              <!-- Card 6 -->
+              <div
+                class="card testimonial-card-v1 bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex flex-col space-y-4 w-72 md:w-80 lg:w-96"
+              >
+                <div class="avatar-wrapper _40px flex items-center">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd31481715b77f9f4d0d_patrick-meyer-avatar-landscaping-x-webflow-template.jpg"
+                    alt="Patrick Meyer Avatar"
+                    class="avatar-image circle w-10 h-10 rounded-full object-cover"
+                  />
+                  <div class="ml-4">
+                    <div
+                      class="testimonial-card-v1---top-content flex items-center"
+                    >
+                      <div class="username-wrapper flex items-center">
+                        <div class="username font-semibold text-gray-900">
+                          Patrick Meyer
+                        </div>
+                        <div class="verified-icon ml-1">
+                          <img
+                            src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd3188858cca620c08c3_verified-icon-landscaping-x-webflow-template.svg"
+                            loading="eager"
+                            alt="Verified Icon"
+                            class="image w-4 h-4"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-sm text-gray-500">@patrick_m</div>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <p class="text-gray-700">
+                    “Expert landscaper delivered incredible result.”
+                  </p>
+                </div>
+              </div>
+
+              <!-- Card 7 -->
+              <div
+                class="card testimonial-card-v1 bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex flex-col space-y-4 w-72 md:w-80 lg:w-96"
+              >
+                <div class="avatar-wrapper _40px flex items-center">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd32872ed1b2bf2138cc_kathie-corl-avatar-landscaping-x-webflow-template.jpg"
+                    alt="Kathie Corl Avatar"
+                    class="avatar-image circle w-10 h-10 rounded-full object-cover"
+                  />
+                  <div class="ml-4">
+                    <div
+                      class="testimonial-card-v1---top-content flex items-center"
+                    >
+                      <div class="username-wrapper flex items-center">
+                        <div class="username font-semibold text-gray-900">
+                          Kathie Corl
+                        </div>
+                        <div class="verified-icon ml-1">
+                          <img
+                            src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd3188858cca620c08c3_verified-icon-landscaping-x-webflow-template.svg"
+                            loading="eager"
+                            alt="Verified Icon"
+                            class="image w-4 h-4"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-sm text-gray-500">@kathie_c</div>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <p class="text-gray-700">“Good job, every time.”</p>
+                </div>
+              </div>
+
+              <!-- Card 8 -->
+              <div
+                class="card testimonial-card-v1 bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex flex-col space-y-4 w-72 md:w-80 lg:w-96"
+              >
+                <div class="avatar-wrapper _40px flex items-center">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd33e10f7b10d9abdfbe_andy-smith-avatar-landscaping-x-webflow-template.jpg"
+                    alt="Andy Smith Avatar"
+                    class="avatar-image circle w-10 h-10 rounded-full object-cover"
+                  />
+                  <div class="ml-4">
+                    <div
+                      class="testimonial-card-v1---top-content flex items-center"
+                    >
+                      <div class="username-wrapper flex items-center">
+                        <div class="username font-semibold text-gray-900">
+                          Andy Smith
+                        </div>
+                        <div class="verified-icon ml-1">
+                          <img
+                            src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd3188858cca620c08c3_verified-icon-landscaping-x-webflow-template.svg"
+                            loading="eager"
+                            alt="Verified Icon"
+                            class="image w-4 h-4"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-sm text-gray-500">@andy_s</div>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <p class="text-gray-700">“Nice skills and creativity.”</p>
+                </div>
+              </div>
+
+              <!-- Duplicate the cards for seamless animation -->
+              <div
+                class="card testimonial-card-v1 bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex flex-col space-y-4 w-72 md:w-80 lg:w-96"
+              >
+                <div class="avatar-wrapper _40px flex items-center">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd31bd59172f6ec115c3_sandy-houston-avatar-landscaping-x-webflow-template.jpg"
+                    alt="Sandy Houston Avatar"
+                    class="avatar-image circle w-10 h-10 rounded-full object-cover"
+                  />
+                  <div class="ml-4">
+                    <div
+                      class="testimonial-card-v1---top-content flex items-center"
+                    >
+                      <div class="username-wrapper flex items-center">
+                        <div class="username font-semibold text-gray-900">
+                          Sandy Houston
+                        </div>
+                        <div class="verified-icon ml-1">
+                          <img
+                            src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd3188858cca620c08c3_verified-icon-landscaping-x-webflow-template.svg"
+                            loading="eager"
+                            alt="Verified Icon"
+                            class="image w-4 h-4"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-sm text-gray-500">@sandy_h</div>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <p class="text-gray-700">“Impressive transformation 😊!”</p>
+                </div>
+              </div>
+
+              <div
+                class="card testimonial-card-v1 bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex flex-col space-y-4 w-72 md:w-80 lg:w-96"
+              >
+                <div class="avatar-wrapper _40px flex items-center">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd31481715b77f9f4d0d_patrick-meyer-avatar-landscaping-x-webflow-template.jpg"
+                    alt="Patrick Meyer Avatar"
+                    class="avatar-image circle w-10 h-10 rounded-full object-cover"
+                  />
+                  <div class="ml-4">
+                    <div
+                      class="testimonial-card-v1---top-content flex items-center"
+                    >
+                      <div class="username-wrapper flex items-center">
+                        <div class="username font-semibold text-gray-900">
+                          Patrick Meyer
+                        </div>
+                        <div class="verified-icon ml-1">
+                          <img
+                            src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd3188858cca620c08c3_verified-icon-landscaping-x-webflow-template.svg"
+                            loading="eager"
+                            alt="Verified Icon"
+                            class="image w-4 h-4"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-sm text-gray-500">@patrick_m</div>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <p class="text-gray-700">“Our yard looking gorgeous!”</p>
+                </div>
+              </div>
+
+              <div
+                class="card testimonial-card-v1 bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex flex-col space-y-4 w-72 md:w-80 lg:w-96"
+              >
+                <div class="avatar-wrapper _40px flex items-center">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd32872ed1b2bf2138cc_kathie-corl-avatar-landscaping-x-webflow-template.jpg"
+                    alt="Kathie Corl Avatar"
+                    class="avatar-image circle w-10 h-10 rounded-full object-cover"
+                  />
+                  <div class="ml-4">
+                    <div
+                      class="testimonial-card-v1---top-content flex items-center"
+                    >
+                      <div class="username-wrapper flex items-center">
+                        <div class="username font-semibold text-gray-900">
+                          Kathie Corl
+                        </div>
+                        <div class="verified-icon ml-1">
+                          <img
+                            src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd3188858cca620c08c3_verified-icon-landscaping-x-webflow-template.svg"
+                            loading="eager"
+                            alt="Verified Icon"
+                            class="image w-4 h-4"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-sm text-gray-500">@kathie_c</div>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <p class="text-gray-700">“Well done”</p>
+                </div>
+              </div>
+
+              <div
+                class="card testimonial-card-v1 bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex flex-col space-y-4 w-72 md:w-80 lg:w-96"
+              >
+                <div class="avatar-wrapper _40px flex items-center">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd33e10f7b10d9abdfbe_andy-smith-avatar-landscaping-x-webflow-template.jpg"
+                    alt="Andy Smith Avatar"
+                    class="avatar-image circle w-10 h-10 rounded-full object-cover"
+                  />
+                  <div class="ml-4">
+                    <div
+                      class="testimonial-card-v1---top-content flex items-center"
+                    >
+                      <div class="username-wrapper flex items-center">
+                        <div class="username font-semibold text-gray-900">
+                          Andy Smith
+                        </div>
+                        <div class="verified-icon ml-1">
+                          <img
+                            src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f36/66c4fd3188858cca620c08c3_verified-icon-landscaping-x-webflow-template.svg"
+                            loading="eager"
+                            alt="Verified Icon"
+                            class="image w-4 h-4"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-sm text-gray-500">@andy_s</div>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <p class="text-gray-700">
+                    “Exceeded all expectations with skills and creativity.”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Get in touch button -->
+        <div class="mt-12 flex justify-center">
+          <a
+            href="#"
+            class="primary-button bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300 ease-in-out"
+          >
+            <div class="button-text">Get in touch</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <section class="relative">
+      <div class="w-full h-64">
+        <img
+          src="https://dtgardening.wpengine.com/wp-content/uploads/2016/12/back-bg.png"
+          alt="Background"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <div class="relative -mt-64 flex items-center justify-between">
+        <div
+          class="bg-[#95c122] diagonal flex flex-col justify-center p-10 text-left w-full lg:w-3/5"
+        >
+          <h1 class="text-3xl font-bold">GARDNER NEED & LANDSCAPING</h1>
+          <p class="italic text-lg mt-2">
+            If you have an gardner need, simply call our 24 hour emergency
+            number
+          </p>
+          <div class="mt-3 flex items-center flex-wrap space-x-3">
+            <span class="text-2xl font-bold">1800 856 7489</span>
+            <span>OR</span>
+            <a
+              href="#"
+              class="bg-[#222222] text-white font-bold rounded flex items-center px-5 py-3 space-x-2"
+            >
+              <span>CONTACT US</span>
+              <span
+                class="bg-[#95c122] rounded-full w-5 h-5 flex items-center justify-center"
+                >➔</span
+              >
+            </a>
+          </div>
+        </div>
+
+        <div class="w-2/5 justify-end relative hidden lg:flex">
+          <img
+            src="http://fastwpdemo.com/demo/gardencare/wp-content/uploads/2022/06/footer-man.png"
+            alt="Person"
+            class="h-[500px] absolute top-[-60px] right-10"
+            data-aos="fade-right"
+            data-aos-duration="2000"
+            data-aos-anchor-placement="bottom-bottom"
+            data-aos-once="false"
+          />
+        </div>
+      </div>
+    </section>
+
+    ---
+
+    <section class="bg-[#3c2813] text-[#d2c8b2] pt-20 pb-10">
+      <div
+        class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 p-6"
+      >
+        <div>
+          <h2 class="text-white font-bold text-lg">About Us</h2>
+          <p class="mt-3">
+            Tempor kpsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+          </p>
+          <a href="#" class="text-[#95c122] mt-3 inline-block">READ MORE ➔</a>
+        </div>
+
+        <div>
+          <h2 class="text-white font-bold text-lg">Our Services</h2>
+          <ul class="mt-3 space-y-1">
+            <li>➔ Testimonials</li>
+            <li>➔ Team</li>
+            <li>➔ Pricing</li>
+            <li>➔ FAQ</li>
+            <li>➔ Contact Us</li>
+          </ul>
+        </div>
+
+        <div
+          class="col-span-1 md:col-span-2 lg:col-span-1 flex flex-col md:flex-row md:items-center md:justify-between"
+        >
+          <div class="md:w-1/2 lg:w-full">
+            <h2 class="text-white font-bold text-lg">Get In Touch</h2>
+            <div class="mt-3 space-y-3">
+              <div>
+                📍 Lorance Road 542B, Tailstoi Town 5248 MT, Worldwide Country
+              </div>
+              <div>📞 +1-800-555-44-678</div>
+              <div>✉️ contact@gardencare.com</div>
+              <div>⏰ Mon - Sat: 9:00 AM - 6:00 PM</div>
+              <div>🗓️ Sunday: Closed</div>
+            </div>
+          </div>
+          <div class="flex justify-center mt-8 md:mt-0 md:w-1/2 lg:hidden">
+            <img
+              src="http://fastwpdemo.com/demo/gardencare/wp-content/uploads/2022/06/footer-man.png"
+              alt="Person"
+              class="h-[250px] object-contain"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggleBtn = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        toggleBtn.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>

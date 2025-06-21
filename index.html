@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Burnals lawn service - Gardening</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <style>
+      /* Custom dotted background pattern */
+      .dotted-background {
+        background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+
+      /* Custom styles for fun fact boxes */
+      .fun-fact-box {
+        background-color: white;
+        border-radius: 0.75rem; /* rounded-xl */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+        border: 1px solid #e5e7eb;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5rem;
+        text-align: center;
+        position: relative;
+        z-index: 10; /* Ensure content is above background leaves */
+      }
+
+      .fun-fact-box .content {
+        margin-bottom: 0.5rem;
+      }
+
+      .fun-fact-box .coun_ter {
+        font-size: 3rem; /* font-72 (approx) */
+        line-height: 1;
+        color: #1a202c; /* color-dark */
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+      }
+
+      .fun-fact-box .coun_ter small {
+        font-size: 0.75em;
+        vertical-align: super;
+      }
+
+      .fun-fact-box .font-20 {
+        font-size: 1.25rem; /* font-20 */
+        color: #1a202c; /* color-dark */
+        margin-bottom: 0;
+        font-weight: 500;
+      }
+
+      .fun-fact-box .icon {
+        margin-top: 1rem;
+      }
+
+      .fun-fact-box .inicon {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 3rem;
+        height: 3rem;
+        background-color: #e0ffe0; /* Light green background for icon */
+        border-radius: 50%;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .fun-fact-box .inicon svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: #4caf50; /* Green color for icon */
+      }
+
+      /* Leaf positioning for desktop */
+      @media (min-width: 1024px) {
+        .leaf-h2-1 {
+          position: absolute;
+          top: -100px; /* Adjust as needed */
+          left: -100px; /* Adjust as needed */
+          width: 200px;
+          height: 352px;
+          z-index: 1;
+          transform: rotate(-15deg);
+          background-image: url("https://placehold.co/200x352/E0FFE0/4CAF50?text=Leaf"); /* Placeholder */
+          background-size: cover;
+          border-radius: 50%; /* Make it circular for a placeholder */
+          opacity: 0.7;
+        }
+        .leaf-h2-2 {
+          position: absolute;
+          bottom: -100px; /* Adjust as needed */
+          right: -100px; /* Adjust as needed */
+          width: 200px;
+          height: 352px;
+          z-index: 1;
+          transform: rotate(15deg);
+          background-image: url("https://placehold.co/200x352/E0FFE0/4CAF50?text=Leaf"); /* Placeholder */
+          background-size: cover;
+          border-radius: 50%; /* Make it circular for a placeholder */
+          opacity: 0.7;
+        }
+      }
+      /* Mobile adjustments for leaves if necessary */
+      @media (max-width: 1023px) {
+        .leaf-h2-1,
+        .leaf-h2-2 {
+          display: none; /* Hide leaves on smaller screens if they cause layout issues */
+        }
+      }
+    </style>
+    <style>
+      .subtitle-dot {
+        width: 8px;
+        height: 8px;
+        background-color: #34d399;
+        border-radius: 50%;
+        margin-right: 8px;
+      }
+
+      .primary-button {
+        background-color: #34d399;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 9999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+      }
+
+      .primary-button:hover {
+        background-color: #2bae7a;
+      }
+
+      .secondary-button.dark-mode {
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 12px 24px;
+        border-radius: 9999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        transition: border-color 0.3s ease, color 0.3s ease;
+      }
+
+      .secondary-button.dark-mode:hover {
+        border-color: rgba(255, 255, 255, 0.7);
+        color: white;
+      }
+
+      .service-card-v1 {
+        border-radius: 12px;
+        overflow: hidden;
+        background-color: white;
+        /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+        display: block;
+        transition: transform 0.3s ease;
+      }
+
+      .image-wrapper {
+        overflow: hidden;
+        border-radius: 8px;
+      }
+
+      .image-wrapper img {
+        transition: transform 0.5s ease;
+      }
+
+      .group:hover .image-wrapper img {
+        transform: scale(1.1);
+      }
+
+      .service-badge-wrapper-v1 {
+        position: absolute;
+        bottom: 16px;
+        left: 16px;
+        background-color: white;
+        border-radius: 50%;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .framed-image {
+        border-radius: 20px;
+        width: 24px;
+        height: 24px;
+      }
+
+      .text-neutral-light {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .text-light {
+        color: white;
+      }
+
+      .slider-nav .w-slider-dot {
+        width: 10px;
+        height: 10px;
+        background-color: rgba(63, 60, 60, 0.3);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .slider-nav .w-slider-dot.w-active {
+        background-color: black;
+      }
+
+      .slide {
+        display: none;
+      }
+
+      .slide.active {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-header-wrapper bg-white shadow sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-2 flex justify-between items-center"
+      >
+        <!-- Logo -->
+        <div id="logo">
+          <a href="index.html" title="Gardening">
+            <img
+              class="normal_logo h-10 sm:h-12"
+              src="./assets/bernalslogo.png"
+              alt="Burnals Lawn Service Logo"
+            />
+          </a>
+        </div>
+
+        <!-- Hamburger Button -->
+        <button
+          id="menu-toggle"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          class="md:hidden text-3xl text-[#44514A] focus:outline-none focus:ring-2 focus:ring-[#8bc34a] transition"
+        >
+          <span class="sr-only">Toggle Menu</span>
+          <svg
+            id="menu-icon"
+            class="w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+
+        <!-- Desktop Menu -->
+        <div id="menu-wrapper" class="hidden md:block">
+          <nav id="main-menu">
+            <ul class="menu flex space-x-6 text-[#44514A] font-medium">
+              <li class="menu-item current-menu-item">
+                <a href="index.html ">Home</a>
+              </li>
+              <li class="menu-item">
+                <a href="about.html" id="about">About</a>
+              </li>
+              <li class="menu-item"><a href="service.html">Services</a></li>
+              <li class="menu-item"><a href="gallery.html">Gallery</a></li>
+              <li class="menu-item">
+                <a href="testimonial.html">Testimonial</a>
+              </li>
+              
+
+              <li class="menu-item"><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+        <nav>
+          <ul class="menu flex flex-col space-y-2 text-[#44514A] font-medium">
+            <li class="menu-item current-menu-item">
+              <a href="index.html">Home</a>
+            </li>
+            <li class="menu-item"><a href="about.html">About</a></li>
+            <li class="menu-item"><a href="service.html">Services</a></li>
+            <li class="menu-item"><a href="gallery.html">Gallery</a></li>
+
+            <!-- <li class="menu-item"><a href="projects.html">Projects</a></li> -->
+            <li class="menu-item"><a href="#">Shop</a></li>
+            <li class="menu-item"><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="hero-section">
+      <div class="background-layers">
+        <div
+          class="background-back-grass"
+          style="
+            background-image: url('https://dtgardening.wpengine.com/wp-content/uploads/2016/12/back-bg.png');
+          "
+        ></div>
+        <div
+          class="background-front-grass"
+          style="
+            background-image: url('https://dtgardening.wpengine.com/wp-content/uploads/2016/12/front-bg.png');
+          "
+        ></div>
+      </div>
+
+      <h1 class="hero-title">
+        Bernal's Lawn <span class="dark-brown">Service</span>
+      </h1>
+      <div class="badge-container">
+        <img src="./assets/bernalslogo.png" alt="Eastman Gardening Badge" />
+      </div>
+      <p class="tagline-bottom">Turn your home into a Green Haven</p>
+    </div>
+    <h2 class="section-heading" id="about">About Us</h2>
+
+    <section id="about-intro-section" class="header-section1">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-20 items-start">
+        <div class="mb-8 md:mb-0">
+            <h1 class="main-heading">
+                Welcome To Bernal Lawn Services, Your Partner for a Beautiful Outdoor Space
+            </h1>
+        </div>
+
+        <div class="mt-8 md:mt-5">
+            <p class="sub-text1 mb-6">
+                At Bernal Lawn Services, we are dedicated to providing "Quality Service" for all your lawn and landscaping needs. With a passion for transforming outdoor spaces, Jose and our team offer a comprehensive range of services, including expert lawn care, grass and sod installation, elegant stone and metal edging, and efficient drainage systems. We specialize in creating stunning rock gardens, vibrant flowerbeds with mulch, and ensuring your irrigation is perfect with sprinkler repair. Our commitment extends to maintaining the health of your lawn through effective fertilizer and weed control. Let us help you cultivate the perfect outdoor oasis.
+            </p>
+            <a href="#" class="about-link">
+                Learn More About Us
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+    <section id="fading-carousel-section" class="fading-carousel-container">
+      <div id="fading-carousel-track" class="fading-carousel-track">
+        <div class="fading-carousel-slide">
+          <img
+            src="https://cdn.prod.website-files.com/657322040347cbe95b29ae19/6578420d6039849fb4447ee7_view-city-with-apartment-buildings-green-vegetation-p-1600.jpg"
+            alt="Garden Tree Landscape 1"
+          />
+        </div>
+        <div class="fading-carousel-slide">
+          <img
+            src="https://cdn.prod.website-files.com/657322040347cbe95b29ae19/657841aab631c3c4be69b9f3_24144.jpg"
+            alt="Garden Tree Landscape 2"
+          />
+        </div>
+        <div class="fading-carousel-slide">
+          <img
+            src="https://cdn.prod.website-files.com/657322040344cbe95b29ae19/657842db104d506b0a456b5a_29675-p-1600.jpg"
+            alt="Garden Tree Greenhouse"
+          />
+        </div>
+        <div class="fading-carousel-slide">
+          <img
+            src="https://cdn.prod.website-files.com/657322040347cbe95b29ae19/657842b71581dd08cab59a01_2150790332-p-1600.jpg"
+            alt="Garden Tree Plants"
+          />
+        </div>
+        <div class="fading-carousel-slide">
+          <img
+            src="./assets/garden.jpg"
+            alt="Garden Tree Urban Garden"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- <section id="statistics-section" class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">29</div>
+                <div class="stat-label">Partner Companies</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">874</div>
+                <div class="stat-label">Total Employees</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">169k</div>
+                <div class="stat-label">Clients</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">265</div>
+                <div class="stat-label">Employee Growth</div>
+            </div>
+        </div>
+    </section> -->
+
+    <section
+      id="sliding-carousel-section"
+      class="sliding-carousel-track-container relative"
+    >
+      <h2 class="section-heading">Our Recent Work</h2>
+      <div class="max-w-7xl mx-auto relative">
+        <div id="sliding-carousel-track" class="sliding-carousel-track">
+          <div class="sliding-carousel-slide">
+            <img
+              src="https://cdn.prod.website-files.com/657322040347cbe95b29ae19/6578420d6039849fb4447ee7_view-city-with-apartment-buildings-green-vegetation-p-1600.jpg"
+              class="sliding-carousel-img"
+              alt="Garden Tree Landscape 1"
+            />
+          </div>
+          <div class="sliding-carousel-slide">
+            <img
+              src="https://cdn.prod.website-files.com/657322040347cbe95b29ae19/657841aab631c3c4be69b9f3_24144.jpg"
+              class="sliding-carousel-img"
+              alt="Garden Tree Landscape 2"
+            />
+          </div>
+          <div class="sliding-carousel-slide">
+            <img
+              src="https://cdn.prod.website-files.com/657322040347cbe95b29ae19/657842db104d506b0a456b5a_29675-p-1600.jpg"
+              class="sliding-carousel-img"
+              alt="Garden Tree Greenhouse"
+            />
+          </div>
+          <div class="sliding-carousel-slide">
+            <img
+              src="https://cdn.prod.website-files.com/657322040347cbe95b29ae19/657842b71581dd08cab59a01_2150790332-p-1600.jpg"
+              class="sliding-carousel-img"
+              alt="Garden Tree Plants"
+            />
+          </div>
+          <div class="sliding-carousel-slide">
+            <img
+              src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da"
+              class="sliding-carousel-img"
+              alt="Garden Tree Urban Garden"
+            />
+          </div>
+        </div>
+
+        <!-- Left Button -->
+        <button
+          onclick="prevSlidingSlide()"
+          class="absolute top-1/2 -translate-y-1/2 left-5 sm:left-10 md:left-16 lg:left-20 font-bold w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full border-2 border-black bg-white/5 backdrop-blur-md hover:text-white hover:bg-black flex items-center justify-center transition duration-300 text-xl sm:text-2xl z-10"
+        >
+          ←
+        </button>
+
+        <!-- Right Button -->
+        <button
+          onclick="nextSlidingSlide()"
+          class="absolute top-1/2 -translate-y-1/2 right-5 sm:right-10 md:right-16 lg:right-0 font-bold w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full border-2 border-black bg-white/5 backdrop-blur-md hover:text-white hover:bg-black flex items-center justify-center transition duration-300 text-xl sm:text-2xl z-10"
+        >
+          →
+        </button>
+      </div>
+    </section>
+
+   
+    <!-- lklk -->
+    <section class="py-16 bg-white text-black">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <div
+          class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12"
+        >
+          <div class="mb-8 md:mb-0">
+            <div
+              class="flex items-center text-sm font-semibold text-green-600 uppercase mb-2"
+            >
+              <div class="subtitle-dot"></div>
+              <div>Services</div>
+            </div>
+            <!-- <h2 class="text-4xl md:text-5xl font-bold leading-tight text-black">Explore our wide range of services</h2> -->
+            <h1
+              class="text-4xl md:text-5xl lg:text-6xl font-semibold text-black leading-tight"
+            >
+              Explore our wide<br class="hidden sm:block" />
+              range of services
+            </h1>
+          </div>
+          <div
+            class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
+          >
+            <button
+              class="bg-green-700 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300"
+            >
+              Get in touch
+            </button>
+            <button
+              class="border border-black text-emerald-300 hover:bg-emerald-600 hover:text-gray-500 font-semibold py-3 px-6 rounded-full transition duration-300"
+            >
+              Browse all services
+            </button>
+          </div>
+        </div>
+
+        <div class="relative">
+          <!-- Slides Wrapper -->
+          <div id="slider-wrapper">
+            <!-- Slide 1 -->
+            <div class="slide active">
+              <!-- 3 cards -->
+              <a href="#" class="service-card-v1 group">
+                <div class="relative image-wrapper">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3aa06bf0ebbfe539c20dd_garden-design-thumbnail-v1-landscaping-x-webflow-template.jpg"
+                    alt="Garden design"
+                    class="w-full h-auto object-cover"
+                  />
+                  <div class="service-badge-wrapper-v1">
+                    <img
+                      src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3ac759c9a165ed5397935_garden-design-icon-landscaping-x-webflow-template.svg"
+                      class="framed-image"
+                    />
+                  </div>
+                </div>
+                <div class="py-6">
+                  <h3 class="text-xl font-bold mb-2 text-gray-700">
+                    Garden design
+                  </h3>
+                  <p class="text-neutral-black font-semibold">
+                    Designing vibrant, functional garden spaces with precision
+                    and creativity.
+                  </p>
+                </div>
+              </a>
+
+              <a href="#" class="service-card-v1 group">
+                <div class="relative image-wrapper">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3ac585fd93c8fd7f563c6_flower-planting-thumbnail-v1-landscaping-x-webflow-template.jpg"
+                    alt="Flower planting"
+                    class="w-full h-auto object-cover"
+                  />
+                  <div class="service-badge-wrapper-v1">
+                    <img
+                      src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3ac5a9376cd8c8f0233dd_flower-planting-icon-landscaping-x-webflow-template.svg"
+                      class="framed-image"
+                    />
+                  </div>
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold mb-2 text-gray-700">
+                    Flower planting
+                  </h3>
+                  <p class="text-neutral-black font-semibold">
+                    Brighten your outdoor space with our expert flower planting
+                    services.
+                  </p>
+                </div>
+              </a>
+
+              <a href="#" class="service-card-v1 group">
+                <div class="relative image-wrapper">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3ac3debd62608bc7f4174_garden-maintenance-thumbnail-v1-landscaping-x-webflow-template.jpg"
+                    alt="Garden maintenance"
+                    class="w-full h-auto object-cover"
+                  />
+                  <div class="service-badge-wrapper-v1">
+                    <img
+                      src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3ac3b17fe019ba0b55743_garden-maintenance-icon-landscaping-x-webflow-template.svg"
+                      class="framed-image"
+                    />
+                  </div>
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold mb-2 text-gray-700">
+                    Garden maintenance
+                  </h3>
+                  <p class="text-neutral-black font-semibold">
+                    Keep your garden pristine with our routine maintenance
+                    services.
+                  </p>
+                </div>
+              </a>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide">
+              <a href="#" class="service-card-v1 group">
+                <div class="relative image-wrapper">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3ac1f39074139e2a1ee61_lawn-mowing-thumbnail-v1-landscaping-x-webflow-template.jpg"
+                    alt="Lawn mowing"
+                    class="w-full h-auto object-cover"
+                  />
+                  <div class="service-badge-wrapper-v1">
+                    <img
+                      src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3ac1dca282a93de2b24a1_lawn-mowing-icon-landscaping-x-webflow-template.svg"
+                      class="framed-image"
+                    />
+                  </div>
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold mb-2 text-gray-700">
+                    Lawn mowing
+                  </h3>
+                  <p class="text-neutral-black font-semibold">
+                    Sharp, clean lawn mowing to keep your yard looking its best.
+                  </p>
+                </div>
+              </a>
+
+              <a href="#" class="service-card-v1 group">
+                <div class="relative image-wrapper">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3ac0a04b7dfa35146715a_leaf-removal-thumbnail-v1-landscaping-x-webflow-template.jpg"
+                    alt="Leaf removal"
+                    class="w-full h-auto object-cover"
+                  />
+                  <div class="service-badge-wrapper-v1">
+                    <img
+                      src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3abea42c69e7a817b28f2_leaf-removal-icon-landscaping-x-webflow-template.svg"
+                      class="framed-image"
+                    />
+                  </div>
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold mb-2 text-gray-700">
+                    Leaf removal
+                  </h3>
+                  <p class="text-neutral-black font-semibold">
+                    Quick and thorough leaf cleanup to keep your space tidy.
+                  </p>
+                </div>
+              </a>
+
+              <a href="#" class="service-card-v1 group">
+                <div class="relative image-wrapper">
+                  <img
+                    src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3abbe5fd93c8fd7f4d07e_pond-maintenance-thumbnail-v1-landscaping-x-webflow-template.jpg"
+                    alt="Pond maintenance"
+                    class="w-full h-auto object-cover"
+                  />
+                  <div class="service-badge-wrapper-v1">
+                    <img
+                      src="https://cdn.prod.website-files.com/66be1e2c791627e193a54f69/66c3abb2e4c87748468cc79a_pond-maintenance-icon-landscaping-x-webflow-template.svg"
+                      class="framed-image"
+                    />
+                  </div>
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold mb-2 text-gray-700">
+                    Pond maintenance
+                  </h3>
+                  <p class="text-neutral-black font-semibold">
+                    Keep your pond healthy, clear, and beautiful all year round.
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Dots -->
+          <div class="slider-nav flex justify-center mt-12 space-x-5">
+            <div class="w-slider-dot w-active" data-slide="0"></div>
+            <div class="w-slider-dot" data-slide="1"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- lklk  -->
+
+    <div class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+      <div
+        class="relative w-full max-w-5xl mx-auto p-8 lg:p-12 bg-white rounded-xl shadow-lg dotted-background"
+      >
+        <!-- Leaf images - using placeholders as original images are not directly accessible/recreatable with CSS only -->
+        <div class="absolute -top-24 -left-24 lg:block hidden">
+          <img
+            loading="lazy"
+            decoding="async"
+            width="200"
+            height="352"
+            src="https://lawnshaper.themepanthers.com/v1/wp-content/uploads/2024/07/leaf-h2-1.png"
+            class="w-full h-full object-cover"
+            alt="Decorative Leaf 1"
+          />
+        </div>
+        <div class="absolute -bottom-24 -right-24 lg:block hidden">
+          <img
+            loading="lazy"
+            decoding="async"
+            width="200"
+            height="352"
+            src="https://lawnshaper.themepanthers.com/v1/wp-content/uploads/2024/07/leaf-h2-1.png"
+            class="w-full h-full object-cover"
+            alt="Decorative Leaf 2"
+          />
+        </div>
+
+        <div
+          class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          <!-- Fun Fact Box 1: Years of Experience -->
+          <div
+            class="fun-fact-box animated fadeInUp"
+            data-count="15"
+            data-suffix="+"
+          >
+            <div class="content">
+              <div class="coun_ter">
+                <span class="count-text">0</span>
+                <small>+</small>
+              </div>
+              <div class="font-20">Years of Experience</div>
+            </div>
+            <div class="icon">
+              <div class="inicon">
+                <!-- SVG for a calendar or clock icon -->
+                <svg
+                  class="h-6 w-6 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h.01M7 16h.01M17 16h.01M14 7h.01M12 21h.01M5 12H3v6a2 2 0 002 2h14a2 2 0 002-2v-6h-2m-8-6V3a1 1 0 011-1h6a1 1 0 011 1v4a1 1 0 01-1 1H9a1 1 0 01-1-1z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fun Fact Box 2: Happy Clients -->
+          <div
+            class="fun-fact-box animated fadeInUp"
+            data-count="500"
+            data-suffix="+"
+            data-delay="100"
+          >
+            <div class="content">
+              <div class="coun_ter">
+                <span class="count-text">0</span>
+                <small>+</small>
+              </div>
+              <div class="font-20">Happy Clients</div>
+            </div>
+            <div class="icon">
+              <div class="inicon">
+                <!-- SVG for a happy face or group icon -->
+                <svg
+                  class="h-6 w-6 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 20h2a2 2 0 002-2V4a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h2m4 0h6m-6 0v-2a2 2 0 012-2h2a2 2 0 012 2v2m-6 0h6m-4-10a2 2 0 11-4 0 2 2 0 014 0z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fun Fact Box 3: 5-Star Reviews -->
+          <div
+            class="fun-fact-box animated fadeInUp"
+            data-count="200"
+            data-delay="200"
+          >
+            <div class="content">
+              <div class="coun_ter">
+                <span class="count-text">0</span>
+                <small></small>
+              </div>
+              <div class="font-20">5-Star Reviews</div>
+            </div>
+            <div class="icon">
+              <div class="inicon">
+                <!-- SVG for a star icon -->
+                <svg
+                  class="h-6 w-6 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M11.049 2.927c.3-.921 1.6-1.921 1.9-.921l2.5 7.6 8 1.9-6.8 5.7 1.9 8-7.6-2.5-7.6 2.5 1.9-8-6.8-5.7 8-1.9L11.049 2.927z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fun Fact Box 4: Customer Satisfaction -->
+          <div
+            class="fun-fact-box animated fadeInUp"
+            data-count="99"
+            data-suffix="%"
+            data-delay="300"
+          >
+            <div class="content">
+              <div class="coun_ter">
+                <span class="count-text">0</span>
+                <small>%</small>
+              </div>
+              <div class="font-20">Customer Satisfaction</div>
+            </div>
+            <div class="icon">
+              <div class="inicon">
+                <!-- SVG for a checkmark or thumb-up icon -->
+                <svg
+                  class="h-6 w-6 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fun Fact Box 5: Equipments Ready -->
+          <div
+            class="fun-fact-box animated fadeInUp"
+            data-count="12"
+            data-delay="400"
+          >
+            <div class="content">
+              <div class="coun_ter">
+                <span class="count-text">0</span>
+                <small></small>
+              </div>
+              <div class="font-20">Equipments Ready</div>
+            </div>
+            <div class="icon">
+              <div class="inicon">
+                <!-- SVG for a tools icon -->
+                <svg
+                  class="h-6 w-6 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 002.572-1.065z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const funFactBoxes = document.querySelectorAll(".fun-fact-box");
+
+          const animateCounter = (element, target, suffix, duration) => {
+            let start = 0;
+            const startTime = performance.now();
+
+            const updateCount = (currentTime) => {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              const currentCount = Math.floor(progress * target);
+
+              element.textContent = currentCount;
+
+              if (progress < 1) {
+                requestAnimationFrame(updateCount);
+              } else {
+                element.textContent = target; // Ensure it reaches the exact target
+              }
+            };
+            requestAnimationFrame(updateCount);
+          };
+
+          const observerOptions = {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.5, // Trigger when 50% of the item is visible
+          };
+
+          const observerCallback = (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const box = entry.target;
+                const countElement = box.querySelector(".count-text");
+                const targetCount = parseInt(box.dataset.count);
+                const suffix = box.dataset.suffix || "";
+                const delay = parseInt(box.dataset.delay) || 0;
+
+                // Only animate if it hasn't been animated yet
+                if (!box.dataset.animated) {
+                  setTimeout(() => {
+                    animateCounter(countElement, targetCount, suffix, 2000); // 2000ms duration
+                    box.dataset.animated = true; // Mark as animated
+                  }, delay);
+                }
+                // Stop observing once animated
+                observer.unobserve(box);
+              }
+            });
+          };
+
+          const observer = new IntersectionObserver(
+            observerCallback,
+            observerOptions
+          );
+
+          funFactBoxes.forEach((box) => {
+            observer.observe(box);
+          });
+        });
+      </script>
+    </div>
+
+    <section class="relative">
+      <div class="w-full h-64">
+        <img
+          src="https://dtgardening.wpengine.com/wp-content/uploads/2016/12/back-bg.png"
+          alt="Background"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <div class="relative -mt-64 flex items-center justify-between">
+        <div
+          class="bg-[#95c122] diagonal flex flex-col justify-center p-10 text-left w-full lg:w-3/5"
+        >
+          <h1 class="text-3xl font-bold">GARDNER NEED & LANDSCAPING</h1>
+          <p class="italic text-lg mt-2">
+            If you have an gardner need, simply call our 24 hour emergency
+            number
+          </p>
+          <div class="mt-3 flex items-center flex-wrap space-x-3">
+            <span class="text-2xl font-bold">1800 856 7489</span>
+            <span>OR</span>
+            <a
+              href="#"
+              class="bg-[#222222] text-white font-bold rounded flex items-center px-5 py-3 space-x-2"
+            >
+              <span>CONTACT US</span>
+              <span
+                class="bg-[#95c122] rounded-full w-5 h-5 flex items-center justify-center"
+                >➔</span
+              >
+            </a>
+          </div>
+        </div>
+
+        <div class="w-2/5 justify-end relative hidden lg:flex">
+          <img
+            src="http://fastwpdemo.com/demo/gardencare/wp-content/uploads/2022/06/footer-man.png"
+            alt="Person"
+            class="h-[500px] absolute top-[-60px] right-10"
+            data-aos="fade-right"
+            data-aos-duration="2000"
+            data-aos-anchor-placement="bottom-bottom"
+            data-aos-once="false"
+          />
+        </div>
+      </div>
+    </section>
+
+    ---
+
+    <section class="bg-[#3c2813] text-[#d2c8b2] pt-20 pb-10">
+      <div
+        class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 p-6"
+      >
+        <div>
+          <h2 class="text-white font-bold text-lg">About Us</h2>
+          <p class="mt-3">
+            Tempor kpsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+          </p>
+          <a href="#" class="text-[#95c122] mt-3 inline-block">READ MORE ➔</a>
+        </div>
+
+        <div>
+          <h2 class="text-white font-bold text-lg">Our Services</h2>
+          <ul class="mt-3 space-y-1">
+            <li>➔ Testimonials</li>
+            <li>➔ Team</li>
+            <li>➔ Pricing</li>
+            <li>➔ FAQ</li>
+            <li>➔ Contact Us</li>
+          </ul>
+        </div>
+
+        <div
+          class="col-span-1 md:col-span-2 lg:col-span-1 flex flex-col md:flex-row md:items-center md:justify-between"
+        >
+          <div class="md:w-1/2 lg:w-full">
+            <h2 class="text-white font-bold text-lg">Get In Touch</h2>
+            <div class="mt-3 space-y-3">
+              <div>
+                📍 Lorance Road 542B, Tailstoi Town 5248 MT, Worldwide Country
+              </div>
+              <div>📞 +1-800-555-44-678</div>
+              <div>✉️ contact@gardencare.com</div>
+              <div>⏰ Mon - Sat: 9:00 AM - 6:00 PM</div>
+              <div>🗓️ Sunday: Closed</div>
+            </div>
+          </div>
+          <div class="flex justify-center mt-8 md:mt-0 md:w-1/2 lg:hidden">
+            <img
+              src="http://fastwpdemo.com/demo/gardencare/wp-content/uploads/2022/06/footer-man.png"
+              alt="Person"
+              class="h-[250px] object-contain"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // script.js (Parallax Effect)
+      document.addEventListener("DOMContentLoaded", () => {
+        const heroSection = document.querySelector(".hero-section");
+        const backGrass = document.querySelector(".background-back-grass");
+        const frontGrass = document.querySelector(".background-front-grass");
+        const badgeContainer = document.querySelector(".badge-container");
+        const taglineBottom = document.querySelector(".tagline-bottom");
+
+        function applyParallax() {
+          if (!heroSection) return; // Exit if heroSection doesn't exist
+
+          const scrollPos = window.scrollY;
+          const sectionTop = heroSection.offsetTop;
+          const sectionHeight = heroSection.offsetHeight;
+
+          const scrollEffectStart = sectionTop;
+          const scrollEffectEnd = sectionTop + sectionHeight;
+
+          if (scrollPos >= scrollEffectStart && scrollPos <= scrollEffectEnd) {
+            const currentSectionScroll = scrollPos - sectionTop;
+
+            const backGrassSpeed = 0.2;
+            const frontGrassSpeed = 0.4;
+            const titleSpeed = 0.6;
+            const badgeSpeed = 0.8;
+            const taglineButtonSpeed = 0.9;
+
+            if (backGrass)
+              backGrass.style.transform = `translateY(${
+                currentSectionScroll * backGrassSpeed
+              }px)`;
+            if (frontGrass)
+              frontGrass.style.transform = `translateY(${
+                currentSectionScroll * frontGrassSpeed
+              }px)`;
+            if (heroTitle)
+              heroTitle.style.transform = `translate(-50%, -50%) translateY(${
+                currentSectionScroll * titleSpeed
+              }px)`;
+            if (badgeContainer)
+              badgeContainer.style.transform = `translateX(-50%) translateY(${
+                currentSectionScroll * badgeSpeed
+              }px)`;
+            if (taglineBottom)
+              taglineBottom.style.transform = `translateX(-50%) translateY(${
+                currentSectionScroll * taglineButtonSpeed
+              }px)`;
+            // if (purchaseButton) purchaseButton.style.transform = `translateX(-50%) translateY(${currentSectionScroll * taglineButtonSpeed}px)`; // This element is not in your HTML
+          } else if (scrollPos < scrollEffectStart) {
+            if (backGrass) backGrass.style.transform = "translateY(0px)";
+            if (frontGrass) frontGrass.style.transform = "translateY(0px)";
+            if (heroTitle) heroTitle.style.transform = "translate(-50%, -50%)";
+            if (badgeContainer)
+              badgeContainer.style.transform = "translateX(-50%)";
+            if (taglineBottom)
+              taglineBottom.style.transform = "translateX(-50%)";
+            // if (purchaseButton) purchaseButton.style.transform = 'translateX(-50%)'; // This element is not in your HTML
+          }
+        }
+
+        window.addEventListener("scroll", applyParallax);
+        applyParallax(); // Call initially to set correct positions if not at top
+      });
+    </script>
+    <script>
+      // AOS initialization
+      AOS.init({});
+
+      // --- First Carousel (Fading - for About Section) JavaScript ---
+      const fadingCarouselTrack = document.getElementById(
+        "fading-carousel-track"
+      );
+      // Ensure fadingCarouselTrack exists before proceeding
+      if (fadingCarouselTrack) {
+        const fadingSlides = Array.from(fadingCarouselTrack.children);
+        const totalFadingSlides = fadingSlides.length;
+        let currentFadingIndex = 0;
+        let autoChangeInterval;
+
+        function updateFadingCarousel() {
+          fadingSlides.forEach((slide) => {
+            slide.classList.remove("active");
+            slide.style.visibility = "hidden";
+          });
+
+          if (fadingSlides[currentFadingIndex]) {
+            fadingSlides[currentFadingIndex].classList.add("active");
+            fadingSlides[currentFadingIndex].style.visibility = "visible";
+          }
+        }
+
+        function nextFadingImage() {
+          currentFadingIndex = (currentFadingIndex + 1) % totalFadingSlides;
+          updateFadingCarousel();
+        }
+
+        function startFadingAutoChange() {
+          clearInterval(autoChangeInterval);
+          autoChangeInterval = setInterval(() => {
+            nextFadingImage();
+          }, 5000); // 5 seconds
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+          updateFadingCarousel();
+          startFadingAutoChange();
+        });
+      }
+
+      // --- Second Carousel (Sliding - for Other Sections) JavaScript ---
+      const slidingCarouselTrack = document.getElementById(
+        "sliding-carousel-track"
+      );
+      // Ensure slidingCarouselTrack exists before proceeding
+      if (slidingCarouselTrack) {
+        const slidingCarouselSlides = slidingCarouselTrack.querySelectorAll(
+          ".sliding-carousel-slide"
+        );
+        let currentSlidingIndex = 1; // Start from second image for better initial centering (0-indexed)
+
+        function updateSlidingCarousel() {
+          slidingCarouselSlides.forEach((slide, index) => {
+            slide.classList.remove("active");
+            slide.style.transition =
+              "transform 0.6s ease-in-out, opacity 0.6s ease-in-out";
+            slide.style.zIndex = 1;
+
+            if (index === currentSlidingIndex) {
+              setTimeout(() => {
+                slide.classList.add("active");
+                slide.style.zIndex = 10;
+              }, 10);
+            }
+          });
+
+          requestAnimationFrame(() => {
+            const container = slidingCarouselTrack.parentElement;
+            // Calculate slide width including margin (20px for 10px on each side)
+            const slideWidth = slidingCarouselSlides[0].offsetWidth + 20;
+            let offset =
+              slideWidth * currentSlidingIndex -
+              (container.offsetWidth - slideWidth) / 2;
+
+            // Ensure we don't scroll past the beginning or end
+            const maxOffset =
+              slidingCarouselTrack.scrollWidth - container.offsetWidth;
+            offset = Math.max(0, Math.min(offset, maxOffset));
+
+            slidingCarouselTrack.style.transform = `translateX(-${offset}px)`;
+          });
+        }
+
+        function nextSlidingSlide() {
+          currentSlidingIndex =
+            (currentSlidingIndex + 1) % slidingCarouselSlides.length;
+          updateSlidingCarousel();
+        }
+
+        function prevSlidingSlide() {
+          currentSlidingIndex =
+            (currentSlidingIndex - 1 + slidingCarouselSlides.length) %
+            slidingCarouselSlides.length;
+          updateSlidingCarousel();
+        }
+
+        // Event listeners for main carousel
+        window.addEventListener("load", updateSlidingCarousel);
+        window.addEventListener("resize", updateSlidingCarousel);
+        window.addEventListener("pageshow", updateSlidingCarousel);
+        document.addEventListener("visibilitychange", updateSlidingCarousel);
+      }
+    </script>
+    <script>
+      const slides = document.querySelectorAll(".slide");
+      const dots = document.querySelectorAll(".w-slider-dot");
+
+      dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          const index = parseInt(dot.dataset.slide);
+
+          // Toggle active class
+          slides.forEach((slide) => slide.classList.remove("active"));
+          dots.forEach((d) => d.classList.remove("w-active"));
+
+          slides[index].classList.add("active");
+          dot.classList.add("w-active");
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggleBtn = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        toggleBtn.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>

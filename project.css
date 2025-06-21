@@ -1,0 +1,642 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #FDFBF4;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 1200px; /* Or whatever width is appropriate for your design */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+.main-header-wrapper {
+    position: absolute; /* Position over the hero section */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100; /* Ensure it's above other content */
+    /* padding: 20px 0; */
+    background: #fff; /* Changed to white background */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for separation */
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo img.normal_logo {
+    height: 70px; /* Adjust as needed */
+    width: auto;
+}
+
+#logo .tagline {
+    font-size: 14px;
+    color: #555; /* Adjust color if logo text is green */
+    margin-left: 10px;
+    font-style: italic;
+    font-family: 'Noto Serif', serif;
+}
+
+/* Navigation Menu */
+#main-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* For horizontal menu */
+}
+
+#main-menu ul li {
+    position: relative;
+    margin-left: 30px;
+}
+
+#main-menu ul li a {
+    text-decoration: none;
+    color: #555; /* Darker grey for menu items */
+    font-weight: 700;
+    font-size: 16px;
+    padding: 5px 0;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+#main-menu ul li a:hover,
+#main-menu ul li.current-menu-item a {
+    color: #8bc34a; /* Green highlight for active/hover */
+}
+
+/* Underline for active menu item (Home) */
+#main-menu ul li.current-menu-item a::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #8bc34a; /* Green line */
+    position: absolute;
+    bottom: -5px; /* Adjust to position under text */
+    left: 0;
+}
+
+/* Hero Section Styles */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 845px; /* Adjust height as per screenshot/design needs */
+    overflow: hidden; /* Crucial for parallax and containing background layers */
+    padding-top: 90px; /* Add padding to push content down below the fixed header */
+    box-sizing: border-box; /* Include padding in height calculation */
+}
+
+.background-layers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow interaction with content above */
+}
+
+.background-back-grass,
+.background-front-grass {
+    position: absolute;
+    width: 100%;
+    background-size: cover; /* Cover the entire area */
+    background-position: center bottom; /* Align grass to bottom of container */
+    background-repeat: no-repeat;
+    transform-origin: bottom center; /* For animations, scale/move from bottom */
+}
+
+.background-back-grass {
+    height: 100%; /* Occupy full height */
+    bottom: 0;
+    filter: blur(1.5px); /* Add a slight blur */
+}
+
+.background-front-grass {
+    height: 50%; /* Approx height from screenshot */
+    bottom: 0; /* Position at the very bottom of the hero-section */
+    z-index: 2; /* Place it above the back grass for overlap effect */
+    /* Add subtle continuous movement for the front grass */
+    animation: grassFloat 8s ease-in-out infinite; /* Slower, gentle float */
+}
+
+/* Keyframe for subtle grass movement */
+@keyframes grassFloat {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); } /* Move up slightly */
+    100% { transform: translateY(0px); }
+}
+
+/* Absolutely position individual content elements */
+.hero-title {
+    position: absolute;
+    top: 38%; /* Adjusted for visual alignment with screenshots */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers the element */
+    z-index: 5;
+    font-family: 'Noto Serif', serif;
+    font-size: 6.375rem; /* 150px / 16px (default root font size) */
+    color: #fff;
+    margin: 0;
+    line-height: 1;
+    /* white-space: nowrap; Uncomment if you absolutely need it on one line, but be aware of overflow */
+    text-align: center;
+    transition: transform 0.3s ease-in-out; /* Add transition for hover effect */
+    /* Ensure text can break words if it needs to wrap */
+    word-break: break-word; /* Allows words to break if they are too long */
+    hyphens: auto; /* Helps with better hyphenation for word breaks */
+    max-width: 90%; /* Prevent overflow on very small screens if nowrap is removed */
+}
+
+.hero-title:hover {
+    transform: translate(-50%, -55%); /* Move text up slightly on hover */
+}
+
+.hero-title .dark-brown {
+    color: #4b250d;
+}
+
+.badge-container {
+    position: absolute;
+    bottom: 120px; /* Adjust this to sit visually on top of the front grass */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 250px;
+    z-index: 3; /* Needs to be above the front grass */
+    animation: badgeFloat 7s ease-in-out infinite; /* Slower, gentle float */
+}
+
+@keyframes badgeFloat {
+    0% { transform: translateX(-50%) translateY(0px); }
+    50% { transform: translateX(-50%) translateY(-7px); } /* Move up slightly */
+    100% { transform: translateX(-50%) translateY(0px); }
+}
+
+.badge-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.tagline-bottom {
+    position: absolute;
+    bottom: 70px; /* Adjust based on where badge sits and space needed */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    font-family: 'Noto Serif', serif;
+    font-size: 1.75rem; /* 28px / 16px */
+    color: #483b33;
+    font-weight: 700;
+    /* white-space: nowrap; Uncomment if you absolutely need it on one line, but be aware of overflow */
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    word-break: break-word;
+    hyphens: auto;
+    max-width: 90%; /* Prevent overflow on very small screens if nowrap is removed */
+}
+
+.tagline-bottom:hover {
+    transform: translateX(-50%) translateY(-3px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 5.25rem; /* 100px / 16px */
+        top: 40%;
+    }
+    .badge-container {
+        width: 180px;
+        height: 180px;
+        bottom: 100px;
+    }
+    .tagline-bottom {
+        font-size: 1.5rem; /* 24px / 16px */
+        bottom: 60px;
+    }
+    .purchase-button {
+        font-size: 1.125rem; /* 18px / 16px */
+        padding: 14px 25px;
+        bottom: 20px;
+    }
+    #main-menu ul li {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Set a smaller base font size for root html on smaller screens if desired,
+       this will scale all rem units accordingly */
+    html {
+        font-size: 15px; /* Adjusts the base for all rem units below this breakpoint */
+    }
+
+    .main-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    #logo {
+        margin-bottom: 15px;
+    }
+    #main-menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    #main-menu ul li {
+        margin: 10px 0;
+    }
+    #main-menu ul li.current-menu-item a::after {
+        display: none;
+    }
+    .hero-title {
+        font-size: 3.667rem; /* 70px / 15px (from html font-size) */
+        top: 45%;
+    }
+    .badge-container {
+        width: 150px;
+        height: 150px;
+        bottom: 80px;
+    }
+    .tagline-bottom {
+        font-size: 1.333rem; /* 20px / 15px */
+        bottom: 40px;
+    }
+    .purchase-button {
+        font-size: 1.067rem; /* 16px / 15px */
+        padding: 12px 20px;
+        bottom: 10px;
+    }
+    .hero-section {
+        height: 600px;
+    }
+    .background-front-grass {
+        height: 40%;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 14px; /* Even smaller base font size */
+    }
+    .hero-title {
+        font-size: 2.571rem; /* 50px / 14px */
+        top: 50%;
+    }
+    .badge-container {
+        width: 120px;
+        height: 120px;
+        bottom: 60px;
+    }
+    .tagline-bottom {
+        font-size: 1.143rem; /* 16px / 14px */
+        bottom: 20px;
+    }
+}
+
+/* Optional: Fluid typography using min(), max(), clamp() */
+/* This can replace some media queries for font-size,
+   but might require browser support considerations if targeting very old browsers. */
+/* Example for .hero-title:
+.hero-title {
+    font-size: clamp(2rem, 10vw, 9.375rem);
+    // This means: min 2rem, preferred 10% of viewport width, max 9.375rem (150px)
+}
+*/
+/* Header Section (Adjusted for clarity, was header-section1) */
+.header-section1 {
+    background-color: #FDFBF4;
+    padding: 20px 0 40px;
+}
+.main-heading { /* Renamed for clarity */
+    font-family: 'Playfair Display', serif;
+    color: #2F3B2E;
+    font-size: 3.5rem;
+    line-height: 1.1;
+}
+.sub-text1 {
+    color: #555555;
+    font-size: 1.125rem;
+    line-height: 1.6;
+}
+.about-link {
+    color: #1A5432;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+.about-link:hover {
+    color: #0F3A21;
+}
+.about-link svg {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+.about-link:hover svg {
+    transform: translateX(5px);
+}
+
+/* First Carousel (Fading - for About Section) */
+.fading-carousel-container { /* Specific class for the fading carousel */
+    max-width: 1200px;
+    margin: 40px auto; /* Adjust margin to accommodate the new heading */
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.fading-carousel-track {
+    position: relative;
+}
+.fading-carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+.fading-carousel-slide.active {
+    opacity: 1;
+    visibility: visible;
+    position: relative; /* Takes up space when active */
+}
+.fading-carousel-slide img {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Stats Section */
+.stats-section {
+    background-color: #FDFBF4;
+    padding: 20px 20px; /* Padding already set */
+    text-align: center;
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.stat-number {
+    font-family: 'Playfair Display', serif;
+    color: #2F3B2E;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 8px;
+}
+.stat-label {
+    font-family: 'Roboto', sans-serif;
+    color: #555555;
+    font-size: 1.125rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+/* Second Carousel (Sliding - for Other Sections) */
+.sliding-carousel-track-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #F5F3EC;
+}
+
+.sliding-carousel-track {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+    will-change: transform;
+    align-items: center;
+    padding: 0 5%; /* Keep your original padding here for overall track spacing */
+    box-sizing: border-box;
+    /* REMOVED: justify-content: center; from here. The JS will handle centering */
+}
+
+.sliding-carousel-slide {
+    flex: 0 0 80%; /* Maintain your original desktop sizing */
+    margin: 0 7px;
+    transform: scale(0.85);
+    opacity: 0.5;
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+    transition-delay: 0.1s;
+    position: relative;
+    z-index: 1;
+    display: flex; /* To center image within the slide's allocated space */
+    justify-content: center;
+    align-items: center;
+}
+
+.sliding-carousel-slide.active {
+    transform: scale(1);
+    opacity: 1;
+    z-index: 10;
+    transition-delay: 0s;
+}
+
+.sliding-carousel-slide .sliding-carousel-img {
+    width: 100%;
+    height: 75vh;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.5s ease-in-out;
+}
+
+.sliding-carousel-slide.active .sliding-carousel-img:hover {
+    transform: scale(1.02);
+}
+
+/* No responsive media queries added, as per your request */
+
+/* Flip Card Styles */
+.flip-card {
+    perspective: 1000px;
+}
+.flip-inner {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+.flipped {
+    transform: rotateY(180deg);
+}
+.flip-front,
+.flip-back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 0.5rem;
+}
+.flip-back {
+    transform: rotateY(180deg);
+}
+
+/* Footer Section Styling */
+footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+footer p, footer ul li a {
+    color: rgba(255, 255, 255, 0.8);
+}
+footer h2, footer h3 {
+    color: #fff;
+}
+footer .tracking-\[\.25em\] {
+    letter-spacing: 0.25em;
+}
+footer button {
+    border-color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.9);
+}
+footer button:hover {
+    background-color: #fff;
+    color: #44514A;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-heading {
+        font-size: 2.5rem;
+    }
+    .stat-number {
+        font-size: 2.8rem;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .sliding-carousel-slide { /* Specific adjustment for sliding carousel */
+        flex: 0 0 90%;
+    }
+    .sliding-carousel-track { /* Specific adjustment for sliding carousel */
+        padding: 0 2%;
+    }
+    .fading-carousel-slide img { /* Specific adjustment for fading carousel */
+        height: 350px; /* Adjust height for smaller screens */
+    }
+    footer .grid {
+        grid-template-columns: 1fr;
+    }
+    footer .p-4 {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    footer .p-4:last-child {
+        border-bottom: none;
+    }
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* NEW: General Section Heading Styles */
+.section-heading {
+    font-family: 'Playfair Display', serif; /* Consistent with main-heading */
+    color: #2F3B2E; /* Dark brown/green from your palette */
+    font-size: 3rem; /* Adjust as needed */
+    text-align: center;
+    margin-bottom: 40px; /* Space below the heading */
+    margin-top: 60px; /* Space above the heading */
+    line-height: 1.2;
+    padding: 0 20px; /* Add some horizontal padding for smaller screens */
+}
+
+/* Specific adjustments for headings based on their section background */
+#fading-carousel-section .section-heading {
+    color: #2F3B2E; /* Keep dark if background is light */
+    margin-top: 0; /* Remove top margin if the section itself has padding */
+    padding-top: 60px; /* Use padding on section or heading */
+}
+
+#statistics-section .section-heading {
+    color: #2F3B2E;
+    /* This section already has padding, so just margin will work */
+}
+
+#sliding-carousel-section .section-heading {
+    color: #2F3B2E; /* Keep dark */
+    margin-top: 0; /* Remove if section has top padding */
+    padding-top: 60px;
+}
+
+#services-section .section-heading {
+    color: #2F3B2E; /* Keep dark */
+    margin-top: 0;
+    padding-top: 60px;
+}
+
+#image-gallery-section .section-heading {
+    color: #FFFFFF; /* White for the dark background section */
+    margin-top: 0;
+    padding-top: 60px;
+}
+
+/* Responsive adjustments for section headings */
+@media (max-width: 1024px) {
+    .section-heading {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-heading {
+        font-size: 2rem;
+        margin-bottom: 30px;
+        margin-top: 40px;
+        padding-top: 40px;
+    }
+    #image-gallery-section .section-heading,
+    #fading-carousel-section .section-heading,
+    #sliding-carousel-section .section-heading,
+    #services-section .section-heading {
+         padding-top: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-heading {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        margin-top: 30px;
+        padding-top: 30px;
+    }
+    #image-gallery-section .section-heading,
+    #fading-carousel-section .section-heading,
+    #sliding-carousel-section .section-heading,
+    #services-section .section-heading {
+        padding-top: 30px;
+    }
+}
+ .diagonal {
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+  }
